@@ -1,0 +1,17 @@
+#cabecera{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(188, 116, 128);
+    color: rgb(49, 46, 46);
+    height: 80px;
+    width: 100vw;
+}
+#izquierda{
+    margin-left: 20px;
+    font-size: 50px;
+}
+
+#derecha{
+    margin-right: 20px;
+    font-size: 30px;
+}
