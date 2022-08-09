@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 import Carta1 from '../../img/1.png'
 import Carta2 from '../../img/2.png'
 import Carta3 from '../../img/3.png'
@@ -10,10 +11,21 @@ import Carta8 from '../../img/8.png'
 import Carta9 from '../../img/9.png'
 
 
-const CartaFrontal = ({carta}) => {
+const CartaFrontal = ({carta, seleccion1, seleccion2, puntuacion, jugada, handleClick}) => {
+  handleClick = () =>{
+    jugada(seleccion1, seleccion2, puntuacion)
+  }
   return (
-    <div>
-        {carta === 'Carta1' && <img src={Carta1}/>}
+    <div id='carta'>
+        {carta === 'Carta1' && <img src={Carta1} onClick={handleClick}/>}
+        {carta === 'Carta2' && <img src={Carta2}/>}
+        {carta === 'Carta3' && <img src={Carta3}/>}
+        {carta === 'Carta4' && <img src={Carta4}/>}
+        {carta === 'Carta5' && <img src={Carta5}/>}
+        {carta === 'Carta6' && <img src={Carta6}/>}
+        {carta === 'Carta7' && <img src={Carta7}/>}
+        {carta === 'Carta8' && <img src={Carta8}/>}
+        {carta === 'Carta9' && <img src={Carta9}/>}
     </div>
   )
 }

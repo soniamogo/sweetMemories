@@ -11,3 +11,9 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+#cartaFron{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
