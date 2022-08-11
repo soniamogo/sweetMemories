@@ -12,12 +12,12 @@ import Carta9 from '../../img/9.png'
 import Trasera from '../../img/candyBack.png'
 
 
-const CartaFrontal = ({carta, seleccion}) => {
+const CartaFrontal = ({carta, handleSelection, index, selected, disabled}) => {
   const giraCarta = () =>{
-    seleccion(carta)
+    handleSelection(index);
   }
   return (
-    <div id='carta'>
+    <div id='carta' className={disabled ? 'disabled' : selected ? 'selected' : null}>
         {carta === 'Carta1' && <img src={Carta1} onClick={giraCarta}/>}
         {carta === 'Carta2' && <img src={Carta2} onClick={giraCarta}/>}
         {carta === 'Carta3' && <img src={Carta3} onClick={giraCarta}/>}
@@ -27,15 +27,6 @@ const CartaFrontal = ({carta, seleccion}) => {
         {carta === 'Carta7' && <img src={Carta7} onClick={giraCarta}/>}
         {carta === 'Carta8' && <img src={Carta8} onClick={giraCarta}/>}
         {carta === 'Carta9' && <img src={Carta9} onClick={giraCarta}/>}
-        {carta === 'Carta10' && <img src={Carta1} onClick={giraCarta}/>}
-        {carta === 'Carta11' && <img src={Carta2} onClick={giraCarta}/>}
-        {carta === 'Carta12' && <img src={Carta3} onClick={giraCarta}/>}
-        {carta === 'Carta13' && <img src={Carta4} onClick={giraCarta}/>}
-        {carta === 'Carta14' && <img src={Carta5} onClick={giraCarta}/>}
-        {carta === 'Carta15' && <img src={Carta6} onClick={giraCarta}/>}
-        {carta === 'Carta16' && <img src={Carta7} onClick={giraCarta}/>}
-        {carta === 'Carta17' && <img src={Carta8} onClick={giraCarta}/>}
-        {carta === 'Carta18' && <img src={Carta9} onClick={giraCarta}/>}
     </div>
   )
 }
