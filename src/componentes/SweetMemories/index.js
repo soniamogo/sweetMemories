@@ -9,7 +9,7 @@ export default class SweetMemories extends Component {
       this.state = {
           seleccion1:'',
           seleccion2:'',
-          puntuacion:0,
+          puntuacion:0
       }
   }
 
@@ -34,7 +34,7 @@ export default class SweetMemories extends Component {
     console.log('ejecutando jugada')
     console.log(seleccion1, seleccion2, puntuacion)
       if(select1 === 'Carta1' && select2 === 'Carta10' ||
-          select1   === 'Carta2' && select2 === 'Carta11' ||
+          select1 === 'Carta2' && select2 === 'Carta11' ||
           select1 === 'Carta3' && select2 === 'Carta12' ||
           select1 === 'Carta4' && select2 === 'Carta13' ||
           select1 === 'Carta5' && select2 === 'Carta14' ||
