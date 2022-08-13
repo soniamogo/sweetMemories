@@ -3,59 +3,48 @@ import Cabecera from '../Cabecera'
 import Tablero from '../Tablero'
 import './style.css'
 
+function repartir() {
+  var cartaFrontal = ['Carta1', 'Carta2', 'Carta3', 'Carta4', 'Carta5', 'Carta6', 'Carta7', 'Carta8', 'Carta9', 'Carta1', 'Carta2', 'Carta3', 'Carta4', 'Carta5', 'Carta6', 'Carta7', 'Carta8', 'Carta9'];
+  cartaFrontal.sort(function() {return Math.random() -0.5})
+  return cartaFrontal
+} 
 export default class SweetMemories extends Component {
   constructor(props) {
       super(props)
       this.state = {
-          seleccion1:'',
-          seleccion2:'',
-          puntuacion:0
+          cartas: repartir(),
+          seleccion: null,
+          puntuacion:0,
+          posEliminadas:[],
+          intentos:0,
       }
   }
 
-  seleccion = (select) =>{
+  seleccion = (posicion) =>{
     console.log('ejecutando inicio')
-    console.log(seleccion1, seleccion2)
-    var {seleccion1, seleccion2} = this.state
-    if(seleccion1 === ''){
-      seleccion1 = select
-    }else{
-      seleccion2 = select
-    }
-    console.log(seleccion1, seleccion2)
-    this.setState({seleccion1:seleccion1, seleccion2:seleccion2})
-    if(seleccion1 !=='' && seleccion2 !==''){
-      this.jugada(seleccion1, seleccion2)
-    }
-  }
-
-  jugada = (select1, select2) =>{
-    var {seleccion1, seleccion2, puntuacion} = this.state
-    console.log('ejecutando jugada')
-    console.log(seleccion1, seleccion2, puntuacion)
-      if(select1 === 'Carta1' && select2 === 'Carta10' ||
-          select1 === 'Carta2' && select2 === 'Carta11' ||
-          select1 === 'Carta3' && select2 === 'Carta12' ||
-          select1 === 'Carta4' && select2 === 'Carta13' ||
-          select1 === 'Carta5' && select2 === 'Carta14' ||
-          select1 === 'Carta6' && select2 === 'Carta15' ||
-          select1 === 'Carta7' && select2 === 'Carta16' ||
-          select1 === 'Carta8' && select2 === 'Carta17' ||
-          select1 === 'Carta9' && select2 === 'Carta18'){
-            puntuacion = puntuacion + 100;
-           console.log(seleccion1, seleccion2, puntuacion)
-      // }else{
-      //   console.log(seleccion1, seleccion2, puntuacion)
+    console.log(seleccion)
+    var {seleccion, cartas, posEliminadas, puntuacion, intentos} = this.state
+    if(!posEliminadas.includes(posicion)){
+      if(seleccion === null){
+        this.setState({seleccion:posicion})
+      }else{
+        if(cartas[posicion] === cartas[seleccion] && posicion !== seleccion){
+          this.setState({posEliminadas: [...posEliminadas,seleccion,posicion], puntuacion: puntuacion + 100 - intentos, seleccion: null, intentos:0})
+        }else{
+          this.setState({seleccion:null, intentos:intentos + 10})
+        }
       }
-      
-    this.setState({seleccion1:'', seleccion2:'', puntuacion:puntuacion})
-    
+    }
   }
+  
+
+  
   render() {
+    var { puntuacion, seleccion, posEliminadas, cartas } = this.state;
     return (
       <div id='global'>
-        <Cabecera puntuacion={this.state.puntuacion}/>
-        <Tablero seleccion1={this.state.seleccion1} seleccion={this.seleccion} puntuacion={this.state.puntuacion} seleccion2={this.state.seleccion2}/>
+        <Cabecera puntuacion={puntuacion}/>
+        <Tablero seleccion={seleccion} handleSelection={this.seleccion} disabled={posEliminadas} cartas={cartas}/>
       </div>
     )
   }

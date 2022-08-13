@@ -9,33 +9,25 @@ import Carta6 from '../../img/6.png'
 import Carta7 from '../../img/7.png'
 import Carta8 from '../../img/8.png'
 import Carta9 from '../../img/9.png'
-import Trasera from '../../img/candyBack.png'
 
 
-const CartaFrontal = ({carta, seleccion}) => {
+
+
+const CartaFrontal = ({carta, selected, disabled, handleSelection, index}) => {
   const giraCarta = () =>{
-    seleccion(carta)
+    handleSelection(index)
   }
   return (
-    <div id='carta'>
-        {carta === 'Carta1' && <img src={Carta1} onClick={giraCarta}/>}
-        {carta === 'Carta2' && <img src={Carta2} onClick={giraCarta}/>}
-        {carta === 'Carta3' && <img src={Carta3} onClick={giraCarta}/>}
-        {carta === 'Carta4' && <img src={Carta4} onClick={giraCarta}/>}
-        {carta === 'Carta5' && <img src={Carta5} onClick={giraCarta}/>}
-        {carta === 'Carta6' && <img src={Carta6} onClick={giraCarta}/>}
-        {carta === 'Carta7' && <img src={Carta7} onClick={giraCarta}/>}
-        {carta === 'Carta8' && <img src={Carta8} onClick={giraCarta}/>}
-        {carta === 'Carta9' && <img src={Carta9} onClick={giraCarta}/>}
-        {carta === 'Carta10' && <img src={Carta1} onClick={giraCarta}/>}
-        {carta === 'Carta11' && <img src={Carta2} onClick={giraCarta}/>}
-        {carta === 'Carta12' && <img src={Carta3} onClick={giraCarta}/>}
-        {carta === 'Carta13' && <img src={Carta4} onClick={giraCarta}/>}
-        {carta === 'Carta14' && <img src={Carta5} onClick={giraCarta}/>}
-        {carta === 'Carta15' && <img src={Carta6} onClick={giraCarta}/>}
-        {carta === 'Carta16' && <img src={Carta7} onClick={giraCarta}/>}
-        {carta === 'Carta17' && <img src={Carta8} onClick={giraCarta}/>}
-        {carta === 'Carta18' && <img src={Carta9} onClick={giraCarta}/>}
+    <div id='carta' className={disabled ? 'disabled' : selected ? 'selected' : null} onClick={giraCarta}>
+        {carta === 'Carta1' && <img src={Carta1}/>}
+        {carta === 'Carta2' && <img src={Carta2}/>}
+        {carta === 'Carta3' && <img src={Carta3}/>}
+        {carta === 'Carta4' && <img src={Carta4}/>}
+        {carta === 'Carta5' && <img src={Carta5}/>}
+        {carta === 'Carta6' && <img src={Carta6}/>}
+        {carta === 'Carta7' && <img src={Carta7}/>}
+        {carta === 'Carta8' && <img src={Carta8}/>}
+        {carta === 'Carta9' && <img src={Carta9}/>}
     </div>
   )
 }
