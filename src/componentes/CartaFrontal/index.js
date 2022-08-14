@@ -9,6 +9,7 @@ import Carta6 from '../../img/6.png'
 import Carta7 from '../../img/7.png'
 import Carta8 from '../../img/8.png'
 import Carta9 from '../../img/9.png'
+import Trasera from '../../img/candyBack.png'
 
 
 

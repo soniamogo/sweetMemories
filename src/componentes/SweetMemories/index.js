@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Cabecera from '../Cabecera'
 import Tablero from '../Tablero'
+import Modal from '../Modal'
 import './style.css'
 
 function repartir() {
@@ -21,8 +22,6 @@ export default class SweetMemories extends Component {
   }
 
   seleccion = (posicion) =>{
-    console.log('ejecutando inicio')
-    console.log(seleccion)
     var {seleccion, cartas, posEliminadas, puntuacion, intentos} = this.state
     if(!posEliminadas.includes(posicion)){
       if(seleccion === null){
@@ -36,7 +35,11 @@ export default class SweetMemories extends Component {
       }
     }
   }
-  
+
+
+  resetear = () =>{
+    this.setState({ cartas:repartir(), seleccion:null, puntuacion:0, posEliminadas:[], intentos:0 })
+  }
 
   
   render() {
@@ -45,6 +48,7 @@ export default class SweetMemories extends Component {
       <div id='global'>
         <Cabecera puntuacion={puntuacion}/>
         <Tablero seleccion={seleccion} handleSelection={this.seleccion} disabled={posEliminadas} cartas={cartas}/>
+        <Modal posEliminadas={posEliminadas} puntuacion={puntuacion} resetear={this.resetear} />
       </div>
     )
   }
