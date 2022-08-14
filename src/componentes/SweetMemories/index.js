@@ -15,6 +15,7 @@ export default class SweetMemories extends Component {
       this.state = {
           cartas: repartir(),
           seleccion: null,
+          seleccion2: null,
           puntuacion:0,
           posEliminadas:[],
           intentos:0,
@@ -27,11 +28,14 @@ export default class SweetMemories extends Component {
       if(seleccion === null){
         this.setState({seleccion:posicion})
       }else{
-        if(cartas[posicion] === cartas[seleccion] && posicion !== seleccion){
-          this.setState({posEliminadas: [...posEliminadas,seleccion,posicion], puntuacion: puntuacion + 100 - intentos, seleccion: null, intentos:0})
-        }else{
-          this.setState({seleccion:null, intentos:intentos + 10})
-        }
+        this.setState({seleccion2:posicion})
+        setTimeout(() => {
+          if(cartas[posicion] === cartas[seleccion] && posicion !== seleccion){
+            this.setState({posEliminadas: [...posEliminadas,seleccion,posicion], puntuacion: puntuacion + 100 - intentos, seleccion: null, intentos:0, seleccion2:null})
+          }else{
+            this.setState({seleccion:null, intentos:intentos + 10, seleccion2:null})
+          }
+        },1000) 
       }
     }
   }
@@ -43,11 +47,11 @@ export default class SweetMemories extends Component {
 
   
   render() {
-    var { puntuacion, seleccion, posEliminadas, cartas } = this.state;
+    var { puntuacion, seleccion, posEliminadas, cartas, seleccion2} = this.state;
     return (
       <div id='global'>
         <Cabecera puntuacion={puntuacion}/>
-        <Tablero seleccion={seleccion} handleSelection={this.seleccion} disabled={posEliminadas} cartas={cartas}/>
+        <Tablero seleccion={seleccion} handleSelection={this.seleccion} disabled={posEliminadas} cartas={cartas} seleccion2={seleccion2}/>
         <Modal posEliminadas={posEliminadas} puntuacion={puntuacion} resetear={this.resetear} />
       </div>
     )

@@ -19,7 +19,8 @@ const CartaFrontal = ({carta, selected, disabled, handleSelection, index}) => {
     handleSelection(index)
   }
   return (
-    <div id='carta' className={disabled ? 'disabled' : selected ? 'selected' : null} onClick={giraCarta}>
+    <div id='carta' className={disabled ? 'disabled' : null} onClick={giraCarta}>
+        {(!selected && !disabled) && <div id='cartaTrasera'/>}
         {carta === 'Carta1' && <img src={Carta1}/>}
         {carta === 'Carta2' && <img src={Carta2}/>}
         {carta === 'Carta3' && <img src={Carta3}/>}
