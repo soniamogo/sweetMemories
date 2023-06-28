@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/sweetMemories/static/css/main.5ffeebb4.css",
+    "main.js": "/sweetMemories/static/js/main.d0bc3934.js",
+    "static/js/787.d4aa8e12.chunk.js": "/sweetMemories/static/js/787.d4aa8e12.chunk.js",
+    "static/media/candyBack.png": "/sweetMemories/static/media/candyBack.7c9eb8aa498407406c7f.png",
+    "static/media/2.png": "/sweetMemories/static/media/2.fba7b631b71e66f791a7.png",
+    "static/media/1.png": "/sweetMemories/static/media/1.7affa0dae9e8cc9dd1cb.png",
+    "static/media/3.png": "/sweetMemories/static/media/3.c85f9a0896b4e4ac8b00.png",
+    "static/media/9.png": "/sweetMemories/static/media/9.151c32bbca520be9fb57.png",
+    "static/media/8.png": "/sweetMemories/static/media/8.e8142c7b7183dc3bd7b1.png",
+    "static/media/7.png": "/sweetMemories/static/media/7.772867e1012da57bfab6.png",
+    "static/media/4.png": "/sweetMemories/static/media/4.78d1579303f1f10095da.png",
+    "static/media/6.png": "/sweetMemories/static/media/6.ef105de26f60de66f3b7.png",
+    "static/media/5.png": "/sweetMemories/static/media/5.60e483ca571fa9879f58.png",
+    "static/media/logo.svg": "/sweetMemories/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/sweetMemories/index.html",
+    "main.5ffeebb4.css.map": "/sweetMemories/static/css/main.5ffeebb4.css.map",
+    "main.d0bc3934.js.map": "/sweetMemories/static/js/main.d0bc3934.js.map",
+    "787.d4aa8e12.chunk.js.map": "/sweetMemories/static/js/787.d4aa8e12.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ffeebb4.css",
+    "static/js/main.d0bc3934.js"
+  ]
+}
